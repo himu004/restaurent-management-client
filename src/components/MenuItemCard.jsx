@@ -3,15 +3,19 @@ const MenuItemCard = ({ menu }) => {
 
   return (
     <div className="md:flex gap-4 space-x-4 ">
-      <img style={{borderRadius: "0 400px 400px 400px"}} className="w-[100px]" src={image} alt="" />
+      <img
+        style={{ borderRadius: "0 400px 400px 400px" }}
+        className="w-[100px]"
+        src={image}
+        alt=""
+      />
       <div>
         <h3 className="uppercase">{name} -------------- </h3>
         <p>{recipe}</p>
         <p>{category}</p>
       </div>
-      <p>
-        <p className="text-yellow-500">${price}</p>
-      </p>
+
+      <p className="text-yellow-500">${price}</p>
     </div>
   );
 };

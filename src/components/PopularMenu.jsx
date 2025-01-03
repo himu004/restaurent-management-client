@@ -22,7 +22,7 @@ const PopularMenu = () => {
       />
       <div className=" container mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 py-10">
         {
-          menus.map(menu => <MenuItemCard key={menu.id} menu={menu} />)
+          menus.map(menu => <MenuItemCard key={menu._id} menu={menu} />)
         }
       </div>
     </section>
