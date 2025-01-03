@@ -1,6 +1,7 @@
 import Banner from "../../components/Banner";
 import Categories from "../../components/Categories";
 import PopularMenu from "../../components/PopularMenu";
+import Featured from "./Featured/Featured";
 
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
             <Banner />
             <Categories />
             <PopularMenu />
+            <Featured />
         </div>
     );
 };
