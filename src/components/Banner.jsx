@@ -5,7 +5,7 @@ import img4 from "../assets/home/04.jpg";
 import img5 from "../assets/home/05.png";
 import img6 from "../assets/home/06.png";
 
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 
 const Banner = () => {

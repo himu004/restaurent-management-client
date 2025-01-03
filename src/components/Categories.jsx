@@ -10,12 +10,13 @@ import { Pagination } from "swiper/modules";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import SectionTittle from "./SectionTittle";
 
 const Categories = () => {
   return (
-    <div className="py-10">
+    <section className="py-10">
       <div className="py-10">
-        <h1 className="text-center text-5xl ">Order Online</h1>
+        <SectionTittle heading="Order Online" subHeading="From 11.00am to 10.00pm" />
       </div>
       {/* Swiper */}
       <div>
@@ -27,7 +28,7 @@ const Categories = () => {
             clickable: true,
           }}
           modules={[Pagination]}
-          className="mySwiper"
+          className="mySwiper mb-20"
         >
           <SwiperSlide>
             <img className="w-full mb-10" src={slide1} alt="slide1" />
@@ -49,7 +50,7 @@ const Categories = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-    </div>
+    </section>
   );
 };
 
