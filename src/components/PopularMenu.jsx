@@ -1,19 +1,11 @@
-import { useEffect, useState } from "react";
 import SectionTittle from "./SectionTittle";
 import MenuItemCard from "./MenuItemCard";
+import useMenu from "../hooks/useMenu";
 
 const PopularMenu = () => {
-  const [menus, setMenus] = useState([]);
+  const [menus] = useMenu();
+  const popular = menus.filter((item) => item.category === "popular");
 
-  useEffect(() => {
-    fetch("/menu.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const popularItems = data.filter(item => item.category === "popular");
-        setMenus(popularItems);
-      });
-  }, []);
-  console.log(menus);
   return (
     <section>
       <SectionTittle
@@ -21,9 +13,9 @@ const PopularMenu = () => {
         subHeading="Our Best Selling Items"
       />
       <div className=" container mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 py-10">
-        {
-          menus.map(menu => <MenuItemCard key={menu._id} menu={menu} />)
-        }
+        {popular.map((menu) => (
+          <MenuItemCard key={menu._id} menu={menu} />
+        ))}
       </div>
     </section>
   );
