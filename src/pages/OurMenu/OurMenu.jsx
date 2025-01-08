@@ -23,14 +23,14 @@ const OurMenu = () => {
       <Helmet>
         <title>Our Menu</title>
       </Helmet>
-      <Cover img={menuImg} title={"Our Menu"}/>
+      <Cover img={menuImg} title={"Our Menu"} />
       <div className="py-5">
         <SectionTittle subHeading={"Dont Miss"} heading={"Todays Offer"} />
         <MenuCategory items={offered} />
-        <MenuCategory items={desserts} title="Desserts" img={dessertImg}/>
-        <MenuCategory items={pizza} title="Pizza" img={pizzaImg}/>
-        <MenuCategory items={pizza} title="Salad" img={saladImg}/>
-        <MenuCategory items={pizza} title="Soup" img={soupImg}/>
+        <MenuCategory items={desserts} title="desserts" img={dessertImg} />
+        <MenuCategory items={pizza} title="pizza" img={pizzaImg} />
+        <MenuCategory items={salad} title="salad" img={saladImg} />
+        <MenuCategory items={soup} title="soup" img={soupImg} />
       </div>
     </div>
   );

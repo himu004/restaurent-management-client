@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const MenuItemCard = ({ menu }) => {
   const { name, recipe, image, category, price } = menu || {};
 
@@ -18,6 +20,15 @@ const MenuItemCard = ({ menu }) => {
       <p className="text-yellow-500">${price}</p>
     </div>
   );
+};
+MenuItemCard.propTypes = {
+  menu: PropTypes.shape({
+    name: PropTypes.string,
+    recipe: PropTypes.string,
+    image: PropTypes.string,
+    category: PropTypes.string,
+    price: PropTypes.number,
+  }).isRequired,
 };
 
 export default MenuItemCard;
