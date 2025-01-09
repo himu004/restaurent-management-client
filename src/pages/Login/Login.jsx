@@ -1,28 +1,29 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
-  LoadCanvasTemplateNoReload,
   validateCaptcha,
 } from "react-simple-captcha";
+import { AuthContext } from "../../providers/Context";
+import { Link } from "react-router-dom";
 
 const Login = () => {
+  const { signIn } = useContext(AuthContext);
 
-    const captchaRef = useRef(null);
-    const [disable, setDisableButton] = useState(true);
+  const captchaRef = useRef(null);
+  const [disable, setDisableButton] = useState(true);
 
   useEffect(() => {
     loadCaptchaEnginge(6);
   }, []);
 
   const handleValidateCaptcha = () => {
-     const user_captcha_value = captchaRef.current.value;
-     console.log(user_captcha_value);
+    const user_captcha_value = captchaRef.current.value;
+    console.log(user_captcha_value);
 
-     if(validateCaptcha(user_captcha_value)){
-       setDisableButton(false);
-     }
- 
+    if (validateCaptcha(user_captcha_value)) {
+      setDisableButton(false);
+    }
   };
 
   const handleLogin = (e) => {
@@ -31,6 +32,10 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.table({ email, password });
+    signIn(email, password).then((result) => {
+      const user = result.user;
+      console.log(user);
+    });
   };
 
   return (
@@ -81,13 +86,24 @@ const Login = () => {
                   className="input input-bordered"
                   required
                 />
-                <button onClick={handleValidateCaptcha}   className="btn btn-neutral btn-outline ml-4">Validate</button>
+                <button
+                  onClick={handleValidateCaptcha}
+                  className="btn btn-neutral btn-outline ml-4"
+                >
+                  Validate
+                </button>
               </div>
             </div>
             <div className="form-control mt-6">
-              <input disabled={disable} className="btn btn-neutral" type="submit" value="Login" />
+              <input
+                disabled={disable}
+                className="btn btn-neutral"
+                type="submit"
+                value="Login"
+              />
             </div>
           </form>
+          <p className="text-center pb-5"><small>New Here? <Link to='/register' className="text-error">Create an Account</Link></small></p>
         </div>
       </div>
     </div>
